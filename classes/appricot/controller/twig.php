@@ -23,7 +23,8 @@ abstract class Appricot_Controller_Twig extends Controller {
 	{
 		if ($this->auto_render)
 		{
-			// Auto-generate template filename ('index' method called on Controller_Admin_Users looks for 'admin/users/index')
+			// Auto-generate template filename
+			// ie. Controller_Admin_Users::action_index() => 'admin/users/index'
 			if ($this->template === NULL)
 			{
 				$this->template = $this->request->controller().'/'.$this->request->action();
@@ -47,5 +48,4 @@ abstract class Appricot_Controller_Twig extends Controller {
 			$this->response->body($this->template->render());
 		}
 	}
-
 }
