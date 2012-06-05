@@ -1,11 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
+
 /**
  * Twig template controller
  *
- * @package    Kotwig
- * @author     John Heathco <jheathco@gmail.com>
+ * @package Appricot/Twig
+ * @author  John Heathco <jheathco@gmail.com>
+ * @author  Boris Ceranic <zextra@gmail.com>
  */
-abstract class Kohana_Controller_Kotwig extends Controller {
+abstract class Appricot_Controller_Twig extends Controller {
 
 	/**
 	 * @var boolean  Auto-render template after controller method returns
@@ -13,10 +15,10 @@ abstract class Kohana_Controller_Kotwig extends Controller {
 	public $auto_render = TRUE;
 
 	/**
-	 * @var Kotwig_View  Kohana twig template
+	 * @var object Twig_View instance
 	 */
 	public $template = NULL;
-	
+
 	public function before()
 	{
 		if ($this->auto_render)
@@ -32,13 +34,13 @@ abstract class Kohana_Controller_Kotwig extends Controller {
 					$this->template = $this->request->directory().'/'.$this->template;
 				}
 			}
-			
-			$this->template = Kotwig_View::factory($this->template);
+
+			$this->template = Twig_View::factory($this->template);
 		}
 	}
-	
+
 	public function after()
-	{		
+	{
 		if ($this->auto_render)
 		{
 			// Auto-render the template
@@ -46,4 +48,4 @@ abstract class Kohana_Controller_Kotwig extends Controller {
 		}
 	}
 
-} // End Controller_Kotwig
+}
