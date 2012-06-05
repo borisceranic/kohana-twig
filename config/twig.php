@@ -10,7 +10,7 @@ return array
 		'base_template_class' => 'Twig_Template',
 		'cache'               => Kohana::$cache_dir.'/twig',
 		'auto_reload'         => TRUE,
-		'strict_variables'    => FALSE,
+		'strict_variables'    => TRUE,
 		'autoescape'          => TRUE,
 		'optimizations'       => -1,
 	),
