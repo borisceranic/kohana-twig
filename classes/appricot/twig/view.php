@@ -1,29 +1,31 @@
 <?php defined('SYSPATH') or die('No direct script access.');
+
 /**
- * Twig view.
+ * Twig View
  *
- * @package  Kotwig
- * @author   John Heathco <jheathco@gmail.com>
+ * @package Appricot/Twig
+ * @author  John Heathco <jheathco@gmail.com>
+ * @author  Boris Ceranic <zextra@gmail.com>
  */
-class Kohana_Kotwig_View extends View {
+class Appricot_Twig_View extends View {
 
 	public static function factory($file = NULL, array $data = NULL)
 	{
-		return new Kotwig_View($file, $data);
+		return new Twig_View($file, $data);
 	}
-	
+
 	protected static function capture($kohana_view_filename, array $kohana_view_data)
 	{
-		return Kotwig::instance()
+		return Twig::instance()
 			->twig
 			->loadTemplate($kohana_view_filename)
 			->render(array_merge($kohana_view_data, View::$_global_data));
-	}	
+	}
 
 	public function set_filename($file)
 	{
-		$ext = Kotwig::instance()->config['suffix'];
-		
+		$ext = Twig::instance()->config['suffix'];
+
 		if ($ext === NULL)
 		{
 			$this->_file = $file;
@@ -35,7 +37,7 @@ class Kohana_Kotwig_View extends View {
 
 		return $this;
 	}
-	
+
 	public function render($file = NULL)
 	{
 		if ($file !== NULL)
@@ -49,6 +51,6 @@ class Kohana_Kotwig_View extends View {
 		}
 
 		// Combine local and global data and capture the output
-		return Kotwig_View::capture($this->_file, $this->_data);
+		return Twig_View::capture($this->_file, $this->_data);
 	}
 }
