@@ -1,7 +1,14 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-// Load the Twig class autoloader
-require Kohana::find_file('vendor', 'Twig/lib/Twig/Autoloader');
+/**
+ * Twig Templating Library for Kohana
+ *
+ * @package Appricot/Twig
+ * @author  Boris Ceranic <zextra@gmail.com>
+ */
 
-// Register the Twig class autoloader
+/*
+ * In order to leverage Kohana's caching facilities, a custom autoloader will
+ * be used, instead of Twig's default one.
+ */
 Twig_Autoloader::register();
