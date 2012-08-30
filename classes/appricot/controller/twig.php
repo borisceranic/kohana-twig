@@ -36,6 +36,9 @@ abstract class Appricot_Controller_Twig extends Controller {
 				}
 			}
 
+			// controllers can be in_sub_directories, so fix that
+			$this->template = str_replace('_', '/', $this->template);
+
 			$this->template = Twig_View::factory($this->template);
 		}
 	}
