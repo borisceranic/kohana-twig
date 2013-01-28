@@ -24,7 +24,7 @@ class Appricot_Twig_Extension extends Twig_Extension
 			'p' => array(               // metrics for <p> element, also used for <br>
 				'line-length'   => 75,  // in characters, approximate
 				'line-height'   => 19,  // in pixels
-				'margin'        => 25,  // in pixels (sum vertical margins and paddings)
+				'margins'       => 25,  // in pixels (sum vertical margins and paddings)
 			),
 			'h1' => array(              // metrics for <h1> element
 				'line-length'   => 48,  // in characters, approximate
